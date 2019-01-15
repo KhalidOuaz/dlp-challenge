@@ -1,18 +1,8 @@
-import {Request} from "./Request";
-import {env} from "./../../env";
+export class Request{
+    constructor(){}
 
-export const API_URL = env.apiUrl;
-
-export const ApiRequest = class ApiRequest {
-
-    static async search(query) {
-        return await Request.fetch(
-            API_URL + '/search/movie' + '?api_key=' + env.apiKeys + '&query='+ query, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-            });
+    static async fetch(url,params: {method: string, body: any, headers: any, status:any, msg:any}){
+        let req = await fetch(url, params);
+        return await req.json();
     }
-};
+}
