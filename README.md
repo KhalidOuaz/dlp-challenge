@@ -1,2 +1,2 @@
 # dlp-challenge
-# React Native The goal of this challenge is to build a simple app using ​themoviedb.org​ API.
+React Native The goal of this challenge is to build a simple app.
