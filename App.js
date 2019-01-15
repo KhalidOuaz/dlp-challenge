@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {SearchBar} from 'react-native-elements'
+import MainRouter from './src/js/router/main';
 
 export default class App extends React.Component {
   constructor(props){
@@ -18,15 +18,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <SearchBar
-            value={this.state.searchText}
-            containerStyle={{}}
-            showLoading
-            platform='ios'
-            cancelIcon={{ type: 'font-awesome', name: 'chevron-left' }}
-            placeholder='Search'
-            onChangeText={()=>this._onChangeText}
-        />
+        <MainRouter/>
       </View>
     );
   }
