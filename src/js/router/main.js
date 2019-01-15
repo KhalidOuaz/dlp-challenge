@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import {
     createStackNavigator,
     createAppContainer
@@ -11,16 +10,15 @@ import {CardMovie} from "../../components/movie";
 const NavStack = createStackNavigator({
     HomeMain: {
         screen: Home,
+        navigationOptions: {
+            header: null // Will hide header for HomePage
+        }
     },
     MovieMain: {
         screen: CardMovie,
     },
 });
-const opts = {
-    header: {
-        visible: false
-    }
-}
+const opts = {};
 const App = createAppContainer(NavStack,opts);
 
 export default App;

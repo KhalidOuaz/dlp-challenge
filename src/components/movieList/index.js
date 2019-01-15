@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View,Platform,FlatList ,TouchableHighlight,ActivityIndicator,TouchableOpacity} from 'react-native';
-import {Header, Input, SearchBar, ListItem, Button,} from 'react-native-elements';
-import {ApiRequest} from "../../js/controllers/ApiRequest";
+import {View} from 'react-native';
+import {ListItem} from 'react-native-elements';
 import {stores} from "../stores";
 import {copy} from "../../js/controllers/util";
 import {Content} from "native-base";
@@ -38,8 +37,7 @@ export class MoviesListUI extends Component {
     }
 
     render() {
-        const {dataSource,isReady,movie,state,data} = this.state;
-        //console.log(data);
+        const {data} = this.state;
         return (
             <Content>
                 <View>
@@ -58,7 +56,7 @@ export class MoviesListUI extends Component {
                                 numberOfLine={1}
                                 key={i}
                                 leftAvatar={{
-                                    containerStyle:{flex: 1, marginLeft: -10, marginTop: 0,height: 200},
+                                    containerStyle:{flex: 1, marginLeft: -10, marginTop: 0,height: 240},
                                     activeOpacity:0.7,
                                     size:"xlarge",
                                     rounded: false,
@@ -72,34 +70,8 @@ export class MoviesListUI extends Component {
                         ))
                     }
                 </View>
-
-
-                <TouchableHighlight
-                    style={styles.button}
-                    onPress={()=>{
-                        console.log(stores.movies.getState().searchText);
-                        //stores.movies.dispatch({type:SET_DELETE_MOVIES})
-                        //console.log('aaaaaaa',this.props.movie.length)
-                        //
-                        // console.log('state',copy(stores.movies.getState()).results);
-                    }}
-                >
-                    <Text> BUTTON TEST STORES -> {'\n'}Entrer un nom de film et {'\n'}regarder console.log </Text>
-                </TouchableHighlight>
             </Content>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        top: 0,
-        paddingTop: 20
-    },
-    button:{
-        backgroundColor:'red',
-        width:'80%',
-        height:70
-    }
-
-});
